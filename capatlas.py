@@ -1,10 +1,10 @@
 import pyhf
 import numpy as np
 
-def plot_lhood(pdf, obs_data, ax=None, order=None, par_name_dict = None, **par_settings):
+def plot_lhood(pdf, obs_data, ax=None, order=None, selector = None, **par_settings):
     pars = pyhf.tensorlib.astensor(pdf.config.suggested_init())
     for k,v in par_settings.items():
-        pars[par_name_dict[k]] = v
+        pars[selector[k]] = v
 
     mc_counts = get_mc_counts(pdf,pars)
     bottom = None
