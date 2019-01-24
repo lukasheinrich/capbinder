@@ -38,6 +38,6 @@ def read_wspace(wspace):
     obs_data = wspace['data']['channel1']
     par_selector = {k: v['slice'].start for k,v in pdf.config.par_map.items()}
     nominal = pdf.config.suggested_init()
-    nominal_settings = {k: nominal[v] for k,v in par_name_dict.items()}
+    nominal_settings = {k: nominal[v] for k,v in par_selector.items()}
     order = ['qcd','mc1','mc2','signal']
     return pdf, obs_data, par_selector, nominal_settings, order
