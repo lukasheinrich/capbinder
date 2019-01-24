@@ -1,1 +1,1 @@
-pyhf
+pyhf==https://github.com/diana-hep/pyhf/archive/master.zip
