@@ -1,2 +1,2 @@
-git+git://github.com/mozilla/elasticutils.git#egg=pyhf
+git+git://github.com/diana-hep/pyhf.git#egg=pyhf
 
