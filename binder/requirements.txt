@@ -1,2 +1,2 @@
 git+git://github.com/diana-hep/pyhf.git#egg=pyhf
-
+matplotlib
