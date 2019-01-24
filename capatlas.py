@@ -6,7 +6,7 @@ def plot_lhood(pdf, obs_data, ax=None, order=None, par_name_dict = None, **par_s
     for k,v in par_settings.items():
         pars[par_name_dict[k]] = v
 
-    mc_counts = get_mc_counts(pars)
+    mc_counts = get_mc_counts(pdf,pars)
     bottom = None
     # nb: bar_data[0] because evaluating only one parset
     order = [pdf.config.samples.index(o) for o in (order or pdf.config.samples)]
