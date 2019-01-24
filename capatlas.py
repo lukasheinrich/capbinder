@@ -36,7 +36,7 @@ def read_wspace(wspace):
     pdf = pyhf.Model(spec, poiname = 'SigXsecOverSM')
 
     obs_data = wspace['data']['channel1']
-    par_name_dict = {k: v['slice'].start for k,v in pdf.config.par_map.items()}
+    par_selector = {k: v['slice'].start for k,v in pdf.config.par_map.items()}
     nominal = pdf.config.suggested_init()
     nominal_settings = {k: nominal[v] for k,v in par_name_dict.items()}
     order = ['qcd','mc1','mc2','signal']
