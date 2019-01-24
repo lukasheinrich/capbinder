@@ -25,3 +25,19 @@ def get_mc_counts(pdf, pars):
     allfac = pyhf.tensorlib.concatenate(factors + [nom_plus_delta])
     return pyhf.tensorlib.product(allfac,axis=0)
 
+def read_wspace(wspace):
+    spec = {
+        'channels': wspace['channels'],
+        'parameters': wspace['toplvl']['measurements'][0]['config'].get(
+            'parameters', []
+        ),
+    }
+
+    pdf = pyhf.Model(spec, poiname = 'SigXsecOverSM')
+
+    obs_data = wspace['data']['channel1']
+    par_name_dict = {k: v['slice'].start for k,v in pdf.config.par_map.items()}
+    nominal = pdf.config.suggested_init()
+    nominal_settings = {k: nominal[v] for k,v in par_name_dict.items()}
+    order = ['qcd','mc1','mc2','signal']
+    return pdf, obs_data, par_selector, nominal_settings, order
